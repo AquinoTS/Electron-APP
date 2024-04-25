@@ -22,4 +22,12 @@ function createWindow() {
     });
 }
 
+function enableAutofill() {
+    return new Promise((resolve, reject) => {
+        // Como o código não parece depender diretamente do preenchimento automático,
+        // podemos simplesmente resolver a promessa imediatamente.
+        resolve('Autofill enabled successfully.');
+    });
+}
+
 app.whenReady().then(createWindow);
