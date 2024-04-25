@@ -16,3 +16,14 @@ npm install
 ```sh
 npm start
 ```
+
+# MySQL
+
+```sh
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'xastre@aluno123',
+    database: 'sistema-usuario'
+});
+```
