@@ -24,3 +24,15 @@ const connection = mysql.createConnection({
     database: 'sistema-usuario'
 });
 ```
+Tabela usuarios
+``` sh
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255),
+    email VARCHAR(255),
+    senha VARCHAR(255),
+    cep VARCHAR(45),
+    rua VARCHAR(45),
+    bairro VARCHAR(45)
+);
+```
