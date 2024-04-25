@@ -83,9 +83,6 @@
             senha: senha
         };
 
-        // Aqui você pode enviar o objeto 'usuario' para um servidor através de uma requisição AJAX para salvar no banco de dados, por exemplo.
-
-        // Por enquanto, apenas exibiremos os dados na console para fins de demonstração
         console.log(usuario);
 
         // Limpa o formulário após o envio
@@ -102,15 +99,13 @@
             return;
         }
         // Aqui você pode realizar a chamada à API para verificar o CEP
-        // Exemplo de chamada fictícia usando a API ViaCEP
         fetch('https://viacep.com.br/ws/' + cep + '/json/')
             .then(response => response.json())
             .then(data => {
                 if (data.erro) {
                     alert('CEP não encontrado.');
                 } else {
-                    // Preencha os campos de endereço com os dados retornados pela API
-                    console.log(data.logradouro);
+                  console.log(data.logradouro);
                     console.log(data.bairro);
                     console.log(data.localidade);
                     console.log(data.uf);
@@ -118,7 +113,6 @@
                     document.getElementById('bairro').value = data.bairro;
                     document.getElementById('localidade').value = data.localidade;
                     document.getElementById('uf').value = data.uf;
-                    // Preencha os demais campos de endereço, como bairro, cidade, etc., se necessário
                 }
             })
             .catch(error => {
