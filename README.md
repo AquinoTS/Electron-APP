@@ -7,7 +7,12 @@ Para baixar os pacotes do electron, de o seguinte comando no terminal:
 ```sh
 npm install electron
 ```
-
+```sh
+npm install express
+```
+```sh
+npm install tedious
+```
 Ao terminar de baixar, para iniciar o aplicativo basta executar o seguinte comando:
 
 ```sh
