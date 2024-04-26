@@ -73,21 +73,46 @@
         var nome = document.getElementById('nome').value;
         var email = document.getElementById('email').value;
         var senha = document.getElementById('senha').value;
+        var cep = document.getElementById('cep').value;
+        var rua = document.getElementById('rua').value;
+        var bairro = document.getElementById('bairro').value;
+        var localidade = document.getElementById('localidade').value;
+        var uf = document.getElementById('uf').value;
 
-        // Aqui você pode fazer validações adicionais, como verificar se o email é válido, se a senha tem um mínimo de caracteres, etc.
-
-        // Crie um objeto com os dados do usuário
+        // Cria um objeto com os dados do usuário
         var usuario = {
             nome: nome,
             email: email,
-            senha: senha
+            senha: senha,
+            cep: cep,
+            rua: rua,
+            bairro: bairro,
+            localidade: localidade,
+            uf: uf
         };
 
-        console.log(usuario);
+        // Envia os dados para o servidor
+        fetch('http://localhost:5000/cadastrar-usuario', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(usuario)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.message);
+            alert(data.message);
+        })
+        .catch(error => {
+            console.error('Erro ao cadastrar usuário:', error);
+            alert('Erro ao cadastrar usuário. Por favor, tente novamente.');
+        });
 
         // Limpa o formulário após o envio
         document.getElementById('cadastroForm').reset();
     });
+
      // Adiciona um evento de escuta para o campo de CEP
      document.getElementById('cep').addEventListener('blur', function() {
         var cep = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos
@@ -121,8 +146,8 @@
             });
     });
 
-    src="renderer.js";
-    scr="main.js";
+    
+
 </script>
 
 </body>
